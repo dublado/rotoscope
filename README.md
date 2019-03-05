@@ -15,4 +15,4 @@ $ python rotoscope.py file.mp4 pencil
 ## Contributors
 
 | [<img src="https://avatars0.githubusercontent.com/u/4955149?s=460&v=4"><br><small>@jeremylow</small>](https://github.com/jeremylow) 
-| [<img src="https://avatars2.githubusercontent.com/u/5424122?s=460&v=4"><br><small>@rra94</small>](https://github.com/rra94) 
+| [<img src="https://avatars2.githubusercontent.com/u/5424122?s=460&v=4"><br><small>@rra94</small>](https://github.com/rra94) |
