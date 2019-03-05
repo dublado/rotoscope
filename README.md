@@ -1,6 +1,8 @@
 # rotoscope
 
+```bash
 rotoscope.py FILE-TO-BE-CONVERTED TRACER
+```
 
 ex: rotoscope.py file.mp4 pencil
 
