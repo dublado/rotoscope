@@ -1,3 +1,5 @@
 # rotoscope
 
-See dlarge.mp4 for example.
+rotoscope.py FILE-TO-BE-CONVERTED TRACER
+
+ex: rotoscope.py file.mp4 pencil
