@@ -21,7 +21,7 @@ files_q = Queue()
 
 def extract_frames(film=None, work_dir=None):
     command = (
-        "ffmpeg -i {film} "
+        "ffmpeg -nostats -loglevel 0 -i {film} "
         "-f image2 -pix_fmt bgr24 %03d.bmp").format(
             film=film,
             outdir=work_dir)
@@ -50,6 +50,10 @@ def trace_file(work_file=None, tracer=None):
     elif tracer == 'potrace':
         trace_command = "potrace -t 25 -s -k .5 -a 2 {0}".format(work_file)
 
+    elif tracer == 'pencil':
+        trace_command = "python ../pencil.py " + work_file + " > /dev/null 2>&1"
+
+
 #    if tracer == 'both':
 #        a_svg =
 #        im1 =
@@ -58,8 +62,8 @@ def trace_file(work_file=None, tracer=None):
     subprocess.call(shlex.split(trace_command))
 
     # Convert traced file back to img format for ffmpeg
-    convert_back = "convert {fn}.svg {fn}.bmp".format(fn=fn)
-    subprocess.call(shlex.split(convert_back))
+    #convert_back = "convert {fn}.svg {fn}.bmp".format(fn=fn)
+    #subprocess.call(shlex.split(convert_back))
 
     # Remove working files
     # subprocess.call(shlex.split('rm {0}'.format(work_file)))
@@ -69,7 +73,7 @@ def trace_file(work_file=None, tracer=None):
 def trace_thread(q, tracer):
     while True:
         work_file = q.get()
-        print("FRAMES REMAINING: ", q.qsize())
+        #print("FRAMES REMAINING: ", q.qsize())
         trace_file(work_file=work_file, tracer=tracer)
         q.task_done()
 
@@ -77,9 +81,9 @@ def trace_thread(q, tracer):
 def autotrace(tracer=None):
     files = os.listdir('.')
     [files_q.put(f) for f in files]
-    print("QUEUE SIZE IS ", files_q.qsize())
+    #print("QUEUE SIZE IS ", files_q.qsize())
 
-    for x in range(8):
+    for x in range(30):
         t = threading.Thread(target=trace_thread, args=(files_q, tracer))
         t.daemon = True
         t.start()
