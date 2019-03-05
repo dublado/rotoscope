@@ -9,7 +9,7 @@ $ python rotoscope.py file.mp4 pencil
 ```
 
 ## Thanks   
-- How to turn any image into a pencil sketch with 10 lines of code [https://medium.freecodecamp.org/sketchify-turn-any-image-into-a-pencil-sketch-with-10-lines-of-code-cf67fa4f68ce|ok]
+- [How to turn any image into a pencil sketch with 10 lines of code](https://medium.freecodecamp.org/sketchify-turn-any-image-into-a-pencil-sketch-with-10-lines-of-code-cf67fa4f68ce)
 - https://github.com/jeremylow/rotoscope
 
 ## Co-authors
